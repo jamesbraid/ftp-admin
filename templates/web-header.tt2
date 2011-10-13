@@ -1,0 +1,57 @@
+<html>
+<head>
+<title> [% title %] </title>
+<link rel="stylesheet" href="[% cfg.web_base %]/include/css.css" type="text/css">
+[% IF admin %]
+        <link rel="stylesheet" href="[% cfg.web_base %]/include/calendar-system.css" type="text/css">
+        <script type="text/javascript" src="[% cfg.web_base %]/include/calendar.js"></script>
+        <script type="text/javascript" src="[% cfg.web_base %]/include/calendar-en.js"></script>
+        <script type="text/javascript" src="[% cfg.web_base %]/include/calendar-setup.js"></script>
+        [% form.jshead %]
+[% END %]
+<script language="JavaScript">
+function popUp(url,w,h){
+	if(!w){
+		w = 350;
+	}
+	if(!h){
+		h = 200;
+	}
+	if(w != 'x') {
+		winpops=window.open(url,"","width=" + w + ",height=" + h + ",resizable,")
+	} else {
+		winpops=window.open(url)
+	}
+}
+function jumpTo(object){ 
+	goTo = object.options[object.selectedIndex].value;
+	if (goTo != "") {
+		parent.location = goTo; 
+	}
+	object.selectedIndex=0;
+}
+</script>
+</head>
+<body [% IF body_param %] [% body_param %] [% END %]>
+[% IF debug %]
+[% debug %]
+<hr>
+[% END %]
+<table width="100%" border="0">
+	<tr>
+			<td width="80%">
+			[% IF heading %]
+				<h3>[% heading %]</h3>
+			[% ELSE %]
+				<h3>[% title %]</h3>
+			[% END %]
+		</td>
+		<td width="20%" align="right">
+		[% IF env.REMOTE_USER %]
+			Logged in as [% env.REMOTE_USER %]
+		[% ELSE %]
+			Not logged in
+		[% END %]
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,22 @@
+<html>
+<head>
+<title> [% title %] </title>
+[% form.jshead %]
+</head>
+<body>
+[% IF debug %]
+[% debug %]
+<hr>
+[% END %]
+<a href="[%myurl%]">Admin Home</a> |&nbsp;
+<a href="/~jamesb/dropzone2/?rm=filemanager">File Manager</a>
+<hr>
+[% IF heading %]
+	<h3>[% heading %]</h3>
+[% ELSE %]
+	<h3>[% title %]</h3>
+[% END %]
+[% IF message %]
+<table width="100%" border=0 padding=1 bgcolor="#000000"><tr><td bgcolor="#fffacd">[% message %]</td></tr></table><br>
+[% END %]
+

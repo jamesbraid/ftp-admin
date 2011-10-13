@@ -1,0 +1,13 @@
+div.row { float: center; text-align: center; width: 100%; }
+div.row span.left { float: left; text-align: left; width: 10%; padding: 10px; }
+div.row span.right { float: center; text-align: center; width: 90%; }
+
+.errormsg { background-color: #fff; border: 1px solid black; padding: 5px; width: 60% }
+
+h3 { font-size: 25px; }
+hr { color: grey; height: 1px; }
+.copy { font-size: xx-small; }
+.copy a { color: #000000; }
+.events { font-size: xx-small; }
+table { font: small helvetica,verdana,arial,sans-serif; }
+body { background: lightgrey; font: small helvetica,verdana,arial,sans-serif; }

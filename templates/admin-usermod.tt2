@@ -1,0 +1,56 @@
+[% INCLUDE 'web-header.tt2' %]
+
+[% IF action == 'adduser' %]
+Once the expiry date is reached, the FTP account and all of the files and directories in it will be deleted permanently. You will be warned before the FTP account expires so you can extend it, if it is still required.
+<br>
+<br>
+[% END %]
+
+[% IF action == 'add' %]
+Details of the new user are shown below, they will also be emailed to you automatically.<br><br>
+[% END %]
+
+[% IF action == 'change' %]
+Please make a note of the details for future reference, as no email will be sent.<br><br>
+[% END %]
+
+
+[% IF action != 'delete' %]
+
+	[% form.start %]
+	<table border=1>
+	[% FOREACH field = form.fields %]
+		[% IF field.invalid %]
+		<tr>
+			<td colspan=2>ERROR: [% field.label %] is missing or invalid, please correct and try again</td>
+		</tr>
+		[% END %]
+		<tr>
+			<td>[% field.label %]</td>
+			<td>[% field.field %] [% field.comment %]</td>
+		</tr>
+	[% END %]
+	</table>
+
+	[% form.submit %][% form.reset %]
+	[% form.end %]
+
+[% END %]
+
+[% UNLESS success %]
+	<script type="text/javascript">
+	    Calendar.setup({
+        	inputField :    "expires",      // id of the input field
+    	    ifFormat   :    "%Y-%m-%d",       // format of the input field
+	        showsTime  :    false,            // will display a time selector
+	        button     :    "trigger",   // trigger for the calendar (button ID)
+        	step       :    1                // show all years in drop-down boxes (instead of every other year as default)
+    	});
+	</script>
+[% END %]
+
+[% IF success %]
+	<a href="[% cfg.web_base %]">Back to admin home</a>
+[% END %]
+
+[% INCLUDE 'web-footer.tt2' %]

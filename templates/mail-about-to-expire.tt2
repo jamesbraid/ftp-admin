@@ -1,0 +1,6 @@
+[% INCLUDE 'mail-header.tt2' %]
+The FTP account '[% username %]' will expire on the [% expire_date %] (in [% expire_in %] day), please click <[% change_url %]> to extend it if required.
+
+If you do not extend the expiry date, then the FTP site and all its contents will be deleted on the [% expire_date %].
+
+[% INCLUDE 'mail-footer.tt2' %]

@@ -1,0 +1,39 @@
+Required perl modules:
+
+CGI
+CGI::Application
+CGI::FormBuilder
+Config::Simple
+DBI
+SQL::Abstract
+MIME::Lite::TT
+Number::Bytes::Human
+Filesys::Df
+
+Other requirements:
+
+apg
+MySQL
+mod_perl
+pure-ftpd
+
+To install:
+
+ - Copy the contents of the ftp-admin folder to /var/www or similar
+ - Make sure the perl modules are available by running perl -c Admin.pm
+ - Edit the cfg.ini file - should be fairly self explanatory
+ - Copy (or link) ftp-admin.apache.conf into /etc/apache2/conf.d and restart
+   Apache
+ - Create the mysql database:
+    mysqladmin create pureftpd
+    mysql pureftpd < ftp-admin.schema.sql
+ - Set up pure-ftpd to look at the mysql database for its users (example config
+   in pureftpd-mysql.conf)
+
+When you login to the web page and create a user, it will make a directory
+under the configured content_dir and then send an email to the user who created
+the user. 
+
+There is also a cronjob script which should be run nightly called
+db-cleaner.pl, this will send reminder emails to people who have created FTP
+accounts a day before they expire. It will also delete expired FTP accounts.

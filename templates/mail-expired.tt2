@@ -1,0 +1,4 @@
+[% INCLUDE 'mail-header.tt2' %]
+The FTP account '[% username %]' has expired and been disabled, please click <[% change_url %]> to re-enable the Dropzone account if you still require it.
+
+[% INCLUDE 'mail-footer.tt2' %]

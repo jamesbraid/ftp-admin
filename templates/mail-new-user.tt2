@@ -1,0 +1,20 @@
+[% INCLUDE 'mail-header.tt2' %]
+The FTP account '[% username %]' has just been created by yourself ([% creator %]) or someone logged in as you.
+
+The account (and all material in it) will be deleted on [% expires %] unless you login to <[% cfg.web_base %]> and change the expiry date prior to the account expiring.
+
+FTP details are as follows:
+
+[% FILTER repeat(72) %]-[% END %]
+
+Hostname: [% cfg.ftp_server %]
+Port: [% cfg.ftp_port %]
+Username: [% username %]
+Password: [% password %]
+Expires on: [% expires %]
+
+[% FILTER repeat(72) %]-[% END %]
+
+If you wish to upload material from the internal network, simply use ftp2 as the hostname.
+
+[% INCLUDE 'mail-footer.tt2' %]

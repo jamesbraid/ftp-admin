@@ -1,0 +1,36 @@
+[% INCLUDE 'web-header.tt2' %]
+
+<a href="[% myurl %]?rm=adduser">Add new user</a><br />
+<hr />
+<table border=1>
+<th>id</th><th>username</th><th>password</th><th>expires</th><th>creator</th>
+[% FOREACH user = users %]
+	<tr>
+		<td>[% user.id %]</td>
+		<td>[% user.username %]</td>
+		<td>[% user.password %]</td>
+		<td>[% user.expires %]</td>
+		<td>[% user.creator %]</td>
+		<td><a href="[% myurl %]?rm=chguser&id=[% user.id %]">Change/Delete</a></td>
+	</tr>
+[% END %]
+</table>
+<br />
+<a href="[% myurl %]?rm=adduser">Add new user</a><br />
+<hr />
+<strong>Event Log</strong><br />
+<table border=1 class=events width=100%>
+The FTP server has [% freespace %] bytes free from a total of [% totalspace %] bytes
+<th class=events>id</th><th class=events>time</th><th class=events>severity</th><th class=events>user</th><th class=events>text</th>
+[% FOREACH event = events %]
+	<tr class=events>
+		<td width=5 class=events>[% event.id %]</td>
+		<td width=200 class=events>[% event.ts %]</td>
+		<td width=90 class=events>[% event.severity %]</td>
+		<td width=90 class=events>[% event.user %]</td>
+		<td class=events>[% event.text %]</td>
+	</tr>
+[% END %]
+</table>
+
+[% INCLUDE 'web-footer.tt2' %]
